@@ -1,5 +1,14 @@
-﻿<h1>The default layout</h1>
-@RenderBody()
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h1>Factory Layout</h1>
+        @RenderBody()
+    </div>
+</body>
+</html>

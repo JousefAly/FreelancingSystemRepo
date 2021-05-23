@@ -1,15 +1,18 @@
-﻿@model List<FreelancingSystem.Models.JobPost>
+﻿@*Recieving List of Job Post from the Action*@
+@model List<FreelancingSystem.Models.JobPost>
 @Styles.Render("~/myDesign")
+
+<h1>Job Posts</h1>
 @foreach (var item in Model)
 {
     // render posts
 
     <div class="container" style="margin-top:35px; margin-left:300px;">
-        
+
         <div id="products" class="row list-group">
             <div class="item  col-xs-4 col-lg-4">
                 <div class="thumbnail">
-                   
+
                     <div class="caption">
                         <h4 class="group inner list-group-item-heading">
                             Client id : @item.ClientID .
@@ -30,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 

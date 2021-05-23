@@ -9,13 +9,19 @@ namespace FreelancingSystem.Controllers
 {
     public class FreelancerController : Controller
     {
+        
         private FreelancingDBContext db = new FreelancingDBContext();
-        // Get list of Freelancers
-        public ActionResult Index()
+        // display list of jobs
+        public ActionResult Home()
         {
-            
-            return View();
+            List<JobPost> JobPostLst = new List<JobPost>();
+            //Quiring using linq to entity
+            JobPostLst = (from post in db.JobPosts
+                          select post).ToList();
+            return View(JobPostLst);
+           
         }
+        
         [HttpGet]
         public ActionResult InsertFreelancer()
         {
@@ -27,7 +33,44 @@ namespace FreelancingSystem.Controllers
         {
             db.Freelancers.Add(freelancer);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Home");
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult Login(Freelancer freelancer)
+        {
+            //to strore the user id we use Session
+            string userName = freelancer.UserName;
+            string password = freelancer.Password;
+            Freelancer fl = null;
+            fl = (from flancer in db.Freelancers
+                  where flancer.UserName == userName
+                  select flancer).FirstOrDefault();
+            
+           
+            if (fl != null && password == fl.Password)
+            {
+               //store the user id of the logined user to access it later
+                Session["userID"] = fl.FreelancerID;
+                return RedirectToAction("Home"); ;
+            }
+            else
+            {
+                
+                return View("ErrorFreelancerNotFound");
+            }
+
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index","Home");
+
         }
     }
 }
