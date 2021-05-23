@@ -16,7 +16,6 @@ namespace FreelancingSystem.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        //true if logged in
-        public bool LoggedIn { get; set; } = false;
+       
     }
 }

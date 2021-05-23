@@ -175,6 +175,14 @@
     <Compile Include="Migrations\202105220524260_big-update-v1.designer.cs">
       <DependentUpon>202105220524260_big-update-v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105230437051_inserted-column-LoggedIn-Freelancer.cs" />
+    <Compile Include="Migrations\202105230437051_inserted-column-LoggedIn-Freelancer.designer.cs">
+      <DependentUpon>202105230437051_inserted-column-LoggedIn-Freelancer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105232023359_removed-LoggedIn-column.cs" />
+    <Compile Include="Migrations\202105232023359_removed-LoggedIn-column.designer.cs">
+      <DependentUpon>202105232023359_removed-LoggedIn-column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\JobPostRate.cs" />
@@ -225,14 +233,17 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\JobPost\Details.cshtml" />
-    <Content Include="Views\Freelancer\Index.cshtml" />
-    <Content Include="Views\JobPost\GetJobPosts.cshtml" />
     <Content Include="Views\JobPost\GetJobPost.cshtml" />
     <Content Include="Views\Client\InsertClient.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Freelancer\InsertFreelancer.cshtml" />
     <Content Include="Views\Shared\_FactoryLayout.cshtml" />
     <Content Include="Views\Client\_ViewStart.cshtml" />
+    <Content Include="Views\Freelancer\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_FreelancerLayout.cshtml" />
+    <Content Include="Views\Freelancer\Login.cshtml" />
+    <Content Include="Views\Freelancer\ErrorFreelancerNotFound.cshtml" />
+    <Content Include="Views\Freelancer\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +282,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105220524260_big-update-v1.resx">
       <DependentUpon>202105220524260_big-update-v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105230437051_inserted-column-LoggedIn-Freelancer.resx">
+      <DependentUpon>202105230437051_inserted-column-LoggedIn-Freelancer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105232023359_removed-LoggedIn-column.resx">
+      <DependentUpon>202105232023359_removed-LoggedIn-column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

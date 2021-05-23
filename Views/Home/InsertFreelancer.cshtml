@@ -1,10 +1,7 @@
-﻿@{
-    Layout = "~/Views/Shared/_WallLayout.cshtml";
-}
-<h1>Freelancer Registeration</h1>
+﻿<h1>Freelancer Registeration</h1>
 @using (Html.BeginForm("InsertFreelancer", "Freelancer", FormMethod.Post))
 {
-    
+    <link href="~/Content/myDesign/RegisterFormStyle.css" rel="stylesheet" />
     <label for="fname">First Name</label>
     <br />
     <input type="text" id="fname" name="FirstName">
