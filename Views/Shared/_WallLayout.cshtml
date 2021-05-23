@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Freelancing</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+        
+    <!--Search bar menu design icon is not working-->
+    <link href="~/Content/myDesign/SearchBarMenu.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <!--old menu-->
+    <!-- old menu
+    <div class="topnav">
+        <a class="active" href="/JobPost/GetJobPosts">Home</a>
+        <a href="/Client/InsertClient">Client Register</a>
+        <a href="/Client/InsertClient">Freelancer Register</a>
+        <a href="/Client/InsertClient">Client Register</a>
+        <a href="/Client/InsertClient">Freelancer Register</a>
+        <a href="#login">Login</a>
+        <a href="#saved">Saved </a>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+        -->
+
+    <!--new menu-->
+    <div id="container">
+        <ul id="menu">
+            <li>
+                <a class="active" href="/JobPost/GetJobPosts">Home</a>
+
+                <!--sublists-->
+
+            </li>
+            <li>
+                <a href="#">Register</a>
+                <ul>
+                    <li><a href="/Client/InsertClient">Client</a></li>
+                    <li><a href="/Freelancer/InsertFreelancer">Freelancer</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#">Login</a>
+                <ul>
+                    <li><a href="#">Freelancer</a></li>
+                    <li><a href="#">Client</a></li>
+                    <li><a href="#">Admin</a></li>
+                </ul>
+            </li>
+            <!-- other menus
+    <li>
+        <a href="#">Contact Me</a>
+        <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Support</a></li>
+        -->
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit">search</button>
+                </form>
+            </div>
+        </ul>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Freelancing System</p>
+            <p>This is the best Freelancing website Start earning now! </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
