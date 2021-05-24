@@ -1,5 +1,80 @@
-﻿<h1>The default layout</h1>
-@RenderBody()
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+    <link href="~/Content/myDesign/factoryStyle.css" rel="stylesheet" />
+    <!--   <link href="~/Design/StyleSheet1.css" rel="stylesheet" />  -->
+</head>
+
+
+<body class="container-fluid">
+
+
+    <header class="navbar navbar-inverse navbar-fixed-top">
+        <h1>Freelancer site</h1>
+    </header>
+
+
+
+    <div class="row">
+
+
+
+        <aside class="col-md-4">
+
+
+            <nav class="">
+                <ul class="">
+
+                    <li class="">
+                        <a class="" href="#">Profile</a>
+                    </li>
+
+                    <li class="">
+
+                        @Html.ActionLink("New post", "AddPost", "Posts")
+
+                    </li>
+
+                    <li class="">
+
+                        @Html.ActionLink("My posts", "Index", "Posts")
+                    </li>
+
+                    <li class="">
+                        <a class="" href="#">Received proposals</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="col-md-8 pgcontent">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <div>
+
+
+    </div>
+
+
+
+    <footer class="navbar-fixed-bottom">
+        &copy; @DateTime.Now.Year reserved for freelancer Group
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>
+
+

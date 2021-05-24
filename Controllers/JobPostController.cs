@@ -29,6 +29,7 @@ namespace FreelancingSystem.Controllers
             return View(jPost);
 
         }
+        /*
         public ActionResult InsertJobPost()
         {
             var post = new JobPost();
@@ -39,6 +40,34 @@ namespace FreelancingSystem.Controllers
             db.JobPosts.Add(post);
             db.SaveChanges();
             return View("Details");
+        }
+        */
+
+        [HttpGet]
+        public ActionResult InsertJobPost()
+        {
+            // var category = obj.postinfomations.ToList();
+
+            JobPost pi = new JobPost();
+
+            return View(pi);
+
+        }
+            [HttpPost]
+        public ActionResult InsertJobPost(JobPost PI)
+        {
+            /*
+            if (!ModelState.IsValid)
+            {
+                return View("Index", PI);
+            }*/
+
+            db.JobPosts.Add(PI);
+
+            db.SaveChanges();
+            return RedirectToAction("Home","Client");
+
+
         }
         public ActionResult DeleteJobPost(int id)
         {

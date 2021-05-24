@@ -12,7 +12,7 @@ namespace FreelancingSystem.Controllers
 
 
         private FreelancingDBContext db = new FreelancingDBContext();
-        public ActionResult Index()
+        public ActionResult Home()
         {
             return View();
         }
