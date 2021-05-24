@@ -97,3 +97,8 @@ C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migration
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.bigupdatev1.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.insertedcolumnLoggedInFreelancer.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.removedLoggedIncolumn.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedtable.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.appliedPost.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedFrApplidPoststable.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.fix.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.fixedColumn.resources

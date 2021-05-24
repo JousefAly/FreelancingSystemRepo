@@ -1,6 +1,7 @@
 ﻿using FreelancingSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,7 +10,7 @@ namespace FreelancingSystem.Controllers
 {
     public class FreelancerController : Controller
     {
-        
+
         private FreelancingDBContext db = new FreelancingDBContext();
         // display list of jobs
         public ActionResult Home()
@@ -19,9 +20,9 @@ namespace FreelancingSystem.Controllers
             JobPostLst = (from post in db.JobPosts
                           select post).ToList();
             return View(JobPostLst);
-           
+
         }
-        
+
         [HttpGet]
         public ActionResult InsertFreelancer()
         {
@@ -51,17 +52,17 @@ namespace FreelancingSystem.Controllers
             fl = (from flancer in db.Freelancers
                   where flancer.UserName == userName
                   select flancer).FirstOrDefault();
-            
-           
+
+
             if (fl != null && password == fl.Password)
             {
-               //store the user id of the logined user to access it later
+                //store the user id of the logined user to access it later
                 Session["userID"] = fl.FreelancerID;
                 return RedirectToAction("Home"); ;
             }
             else
             {
-                
+
                 return View("ErrorFreelancerNotFound");
             }
 
@@ -69,20 +70,61 @@ namespace FreelancingSystem.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
 
         }
         // id is the jobpost id sent by url
         public ActionResult SavePost(int id)
         {
             //check first if it is saved
+            FrSavedPost post = null;
+            int userID = (int)Session["userID"];
+            post = (from p in db.FrSavedPosts
+                    where p.PostID == id && p.FreeLancerID == userID
+                    select p).FirstOrDefault();
+            if (post == null)
+            {
+                post = new FrSavedPost();
+                post.FreeLancerID = (int)Session["userID"];
+                post.PostID = id;
+                db.FrSavedPosts.Add(post);
+                db.SaveChanges();
+                return RedirectToAction("Home", "Freelancer");
+            }
+            else
+            {
+                return View("ErrorPostIsSaved");
+            }
+        }
+        /*
+         * To Create Edit view we need to 
+         * 1.Return the object we want to edit it the [httpGet] method
+         * 2.Edit the student using template t
+         * 3.Make http post method  to update the row in the database
+         */
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            if (Session["userID"] != null)
+            {
+                int id = (int)Session["userID"];
+                Freelancer flncr = db.Freelancers.Find(id);
+                return View(flncr);
+            }
+            else
+                return RedirectToAction("Home");
+        }
+        [HttpPost]
+        public ActionResult EditProfile(Freelancer f)
 
-            FrSavedPost post = new FrSavedPost();
-            post.FreeLancerID = (int)Session["userID"];
-            post.PostID = id;
-            db.FrSavedPosts.Add(post);
+        {
+
+            db.Entry(f).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Home", "Freelancer");
+            
+
+
+            return View("EditProfile");
         }
     }
 }

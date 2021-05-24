@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -47,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -183,8 +182,29 @@
     <Compile Include="Migrations\202105232023359_removed-LoggedIn-column.designer.cs">
       <DependentUpon>202105232023359_removed-LoggedIn-column.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105240354347_added-table.cs" />
+    <Compile Include="Migrations\202105240354347_added-table.Designer.cs">
+      <DependentUpon>202105240354347_added-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105240415080_appliedPost.cs" />
+    <Compile Include="Migrations\202105240415080_appliedPost.Designer.cs">
+      <DependentUpon>202105240415080_appliedPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105240417235_added-FrApplidPosts-table.cs" />
+    <Compile Include="Migrations\202105240417235_added-FrApplidPosts-table.Designer.cs">
+      <DependentUpon>202105240417235_added-FrApplidPosts-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105240425106_fix.cs" />
+    <Compile Include="Migrations\202105240425106_fix.Designer.cs">
+      <DependentUpon>202105240425106_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105240428191_fixedColumn.cs" />
+    <Compile Include="Migrations\202105240428191_fixedColumn.Designer.cs">
+      <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\FrAppliedPost.cs" />
     <Compile Include="Models\JobPostRate.cs" />
     <Compile Include="Models\FrSavedPost.cs" />
     <Compile Include="Models\Client.cs" />
@@ -250,6 +270,8 @@
     <Content Include="Views\Home\ErrorLoginFirst.cshtml" />
     <Content Include="Views\Client\Login.cshtml" />
     <Content Include="Views\Client\ErrorClientNotFound.cshtml" />
+    <Content Include="Views\Freelancer\EditProfile.cshtml" />
+    <Content Include="Views\Freelancer\ErrorPostIsSaved.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,6 +317,21 @@
     <EmbeddedResource Include="Migrations\202105232023359_removed-LoggedIn-column.resx">
       <DependentUpon>202105232023359_removed-LoggedIn-column.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105240354347_added-table.resx">
+      <DependentUpon>202105240354347_added-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105240415080_appliedPost.resx">
+      <DependentUpon>202105240415080_appliedPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105240417235_added-FrApplidPosts-table.resx">
+      <DependentUpon>202105240417235_added-FrApplidPosts-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105240425106_fix.resx">
+      <DependentUpon>202105240425106_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105240428191_fixedColumn.resx">
+      <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -329,10 +366,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
