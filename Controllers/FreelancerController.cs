@@ -72,5 +72,17 @@ namespace FreelancingSystem.Controllers
             return RedirectToAction("Index","Home");
 
         }
+        // id is the jobpost id sent by url
+        public ActionResult SavePost(int id)
+        {
+            //check first if it is saved
+
+            FrSavedPost post = new FrSavedPost();
+            post.FreeLancerID = (int)Session["userID"];
+            post.PostID = id;
+            db.FrSavedPosts.Add(post);
+            db.SaveChanges();
+            return RedirectToAction("Home", "Freelancer");
+        }
     }
 }

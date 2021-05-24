@@ -34,5 +34,9 @@ namespace FreelancingSystem.Controllers
 
             return View();
         }
+        public ActionResult ErrorLoginFirst()
+        {
+            return View();
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace FreelancingSystem.Controllers
             post.Name = "Back End Developer needed";
 
             post.Budget = 1500M;
+            post.Approved = true;
             db.JobPosts.Add(post);
             db.SaveChanges();
             return View("Details");

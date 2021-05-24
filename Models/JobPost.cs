@@ -20,8 +20,8 @@ namespace FreelancingSystem.Models
         // initialized when object is instantiated to the time of object creation
         public DateTime CreationDate { get; set; } = DateTime.Now;
         public int NumOfProposals { get; set; }
-        //freelancer id
-        public int FreelancerId { get; set; }
+        //freelancer id = 0 if no freelancer is assigned
+        public int FreelancerId { get; set; } 
         // true if approved by admin otherwise false
         public bool Approved { get; set; } = false;
 

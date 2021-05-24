@@ -1,7 +1,24 @@
 ﻿@model FreelancingSystem.Models.JobPost
+@*if freelancer is not logined dont show the details*@
+@{
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Home/ErrorLoginFirst");
+    }
+}
+<link href="~/Content/myDesign/FLPostOptionsStyle.css" rel="stylesheet" />
+
 
 <div>
-   <h1>@Model.Name</h1>
+    <h1>@Model.Name</h1>
     <h2>@Model.Discreption</h2>
-    <h3>Budget = </h3>@Model.Budget
+    <h3>Budget = @Model.Budget </h3>
+</div>
+<div class="btn-group">
+
+    <a class="button" href="/Freelancer/SavePost/@Model.JobPostID">Save</a>
+
+    <button class="button">Apply</button>
+    <button class="button">Rate</button>
+
 </div>

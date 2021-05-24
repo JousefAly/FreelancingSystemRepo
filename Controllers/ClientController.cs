@@ -12,7 +12,7 @@ namespace FreelancingSystem.Controllers
 
 
         private FreelancingDBContext db = new FreelancingDBContext();
-        public ActionResult Index()
+        public ActionResult Home()
         {
             return View();
         }
@@ -27,7 +27,44 @@ namespace FreelancingSystem.Controllers
         {
             db.Clients.Add(client);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Home");
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult Login(Client client)
+        {
+            //to strore the user id we use Session
+            string userName = client.UserName;
+            string password = client.Password;
+            Client cl = null;
+            cl = (from clnt in db.Clients
+                  where clnt.UserName == userName
+                  select clnt).FirstOrDefault();
+
+
+            if (cl != null && password == cl.Password)
+            {
+                //store the user id of the logined user to access it later
+                Session["clientID"] = cl.ClientID;
+                return RedirectToAction("Home"); ;
+            }
+            else
+            {
+
+                return View("ErrorClientNotFound");
+            }
+           
+
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
         }
 
     }
