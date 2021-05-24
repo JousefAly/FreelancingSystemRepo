@@ -224,6 +224,7 @@
     <Content Include="Content\myDesign\JobPostsStyle.css" />
     <Content Include="Content\myDesign\List2Style.css" />
     <Content Include="Content\myDesign\SearchBarMenu.css" />
+    <Content Include="Content\myDesign\TableStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -271,7 +272,13 @@
     <Content Include="Views\Client\Login.cshtml" />
     <Content Include="Views\Client\ErrorClientNotFound.cshtml" />
     <Content Include="Views\Freelancer\EditProfile.cshtml" />
-    <Content Include="Views\Freelancer\ErrorPostIsSaved.cshtml" />
+    <Content Include="Views\Freelancer\PostIsSaved.cshtml" />
+    <Content Include="Views\Freelancer\ErrorPostIsApplied.cshtml" />
+    <Content Include="Views\Freelancer\JobIsApplied.cshtml" />
+    <Content Include="Views\Freelancer\DisplaySavedPosts.cshtml" />
+    <Content Include="Views\Freelancer\DisplayMyJobs.cshtml" />
+    <Content Include="Views\JobPost\Search.cshtml" />
+    <Content Include="Views\JobPost\SearchWall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

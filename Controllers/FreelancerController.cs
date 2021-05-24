@@ -89,11 +89,11 @@ namespace FreelancingSystem.Controllers
                 post.PostID = id;
                 db.FrSavedPosts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Home", "Freelancer");
+                return RedirectToAction("PostIsSaved");
             }
             else
             {
-                return View("ErrorPostIsSaved");
+                return View("PostIsSaved");
             }
         }
         /*
@@ -126,5 +126,67 @@ namespace FreelancingSystem.Controllers
 
             return View("EditProfile");
         }
+        public ActionResult ApplyPost(int id)
+        {
+            //check first if it is already applied
+            FrAppliedPost post = null;
+            int userID = (int)Session["userID"];
+            post = (from p in db.FrAppliedPosts
+                    where p.PostID == id && p.FreelancerID == userID
+                    select p).FirstOrDefault();
+            if (post == null)
+            {
+                post = new FrAppliedPost();
+                post.FreelancerID = userID;
+                post.PostID = id;
+                db.FrAppliedPosts.Add(post);
+                db.SaveChanges();
+                return RedirectToAction("JobIsApplied");
+            }
+            else
+            {
+                return View("ErrorPostIsApplied");
+            }
+        }
+        public ActionResult DisplaySavedPosts()
+        {
+            List<FrSavedPost> savedPostsLst = new List<FrSavedPost>();
+            if (Session["userID"] == null)
+                return View("~/Views/Home/ErrorLoginFirst.cshtml");
+            int userID = (int)Session["userID"];
+            savedPostsLst = (from post in db.FrSavedPosts
+                             where post.FreeLancerID == userID
+                             select post).ToList();
+            // now extract the exact list of posts
+            List<JobPost> jobPostsLst = new List<JobPost>();
+            for(int i = 0; i < savedPostsLst.Count;i++)
+            {
+                //extract then add
+                JobPost post = null;
+                int postID = savedPostsLst[i].PostID;
+
+                post = (from p in db.JobPosts
+                        where p.JobPostID == postID
+                        select p).FirstOrDefault();
+                if(post != null)
+                {
+                    jobPostsLst.Add(post);
+                }
+            }
+            return View(jobPostsLst);
+        }
+        public ActionResult DisplayMyJobs ()
+        {
+            if (Session["userID"] == null)
+                return View("~/Views/Home/ErrorLoginFirst.cshtml");
+            int userID = (int)Session["userID"];
+            var myJobsLst = new List<JobPost>();
+            myJobsLst = (from post in db.JobPosts
+                         where post.FreelancerId == userID
+                         select post).ToList();
+            return View(myJobsLst);
+
+        }
+
     }
 }

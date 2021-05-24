@@ -24,7 +24,7 @@ namespace FreelancingSystem.Controllers
         {
             var jPost = new JobPost();
             jPost = (from post in db.JobPosts
-                    where post.JobPostID == id  
+                     where post.JobPostID == id
                      select post).FirstOrDefault();
             return View(jPost);
 
@@ -34,6 +34,7 @@ namespace FreelancingSystem.Controllers
             var post = new JobPost();
             post.Discreption = "post discreption....";
             post.Name = "Back End Developer needed";
+            post.FreelancerId = 1;
 
             post.Budget = 1500M;
             post.Approved = true;
@@ -62,6 +63,39 @@ namespace FreelancingSystem.Controllers
             jp.Budget = 10000000M;
             db.SaveChanges();
             return View("Details");
+        }
+        [HttpPost]
+        public ActionResult Search(string txt)
+        {
+            var query = new List<JobPost>();
+            //check if word is a client name
+            Client client = null;
+
+            client = (from c in db.Clients
+                      where c.FirstName == txt || c.LastName == txt
+                      select c).FirstOrDefault();
+            if (client != null)
+            {
+                int clientID = client.ClientID;
+                query = (from post in db.JobPosts
+                         where post.FreelancerId == 0
+                         && (post.Name == txt || post.ClientID == clientID)
+                         select post).ToList();
+                if (Session["userID"] == null)
+                    return View("SearchWall", query);
+                return View(query);
+            }
+            else
+            {
+                query = (from post in db.JobPosts
+                         where post.FreelancerId == 0 && post.Name == txt
+                         select post).ToList();
+                if (Session["userID"] == null)
+                    return View("SearchWall", query);
+                return View(query);
+            }
+
+
         }
     }
 }
