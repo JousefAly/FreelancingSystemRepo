@@ -29,24 +29,12 @@ namespace FreelancingSystem.Controllers
             return View(jPost);
 
         }
-        /*
-        public ActionResult InsertJobPost()
-        {
-            var post = new JobPost();
-            post.Discreption = "post discreption....";
-            post.Name = "Back End Developer needed";
-
-            post.Budget = 1500M;
-            db.JobPosts.Add(post);
-            db.SaveChanges();
-            return View("Details");
-        }
-        */
+       
 
         [HttpGet]
         public ActionResult InsertJobPost()
         {
-            // var category = obj.postinfomations.ToList();
+           
 
             JobPost pi = new JobPost();
 
@@ -71,25 +59,38 @@ namespace FreelancingSystem.Controllers
         }
         public ActionResult DeleteJobPost(int id)
         {
-            JobPost jp = new JobPost();
-            jp = (from post in db.JobPosts
-                  where post.JobPostID == id
-                  select post).FirstOrDefault();
-            //removing entity from database
-            db.JobPosts.Remove(jp);
+            var del = db.ClientPosts.Single(c => c.PostID == id);
+            if (del == null)
+                return HttpNotFound();
+            db.ClientPosts.Remove(del);
             db.SaveChanges();
-            return View("Details");
+            return RedirectToAction("Home", "Client");
         }
-        public ActionResult UpdateJobPost(int jobPostID)
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            JobPost jp = new JobPost();
-            jp = (from post in db.JobPosts
-                  where post.JobPostID == jobPostID
-                  select post).FirstOrDefault();
-            jp.Discreption = "Disreption updated text....";
-            jp.Budget = 10000000M;
-            db.SaveChanges();
-            return View("Details");
+            var editPost = db.JobPosts.Single(a => a.JobPostID == id);
+            if (editPost == null)
+                return HttpNotFound();
+
+            return View(editPost);
+           
         }
+
+        [HttpPost]
+        public ActionResult Edit(JobPost jobpost)
+        {
+            var editPost = db.JobPosts.Single(a => a.JobPostID == jobpost.JobPostID);
+            editPost.Name = jobpost.Name;
+            editPost.Discreption = jobpost.Discreption;
+            editPost.Budget = jobpost.Budget;
+            editPost.Type = jobpost.Type;
+            db.SaveChanges();
+
+            return View(editPost);
+
+        }
+
+
     }
 }

@@ -33,12 +33,12 @@
                 <ul class="">
 
                     <li class="">
-                        <a class="" href="#">Profile</a>
+                        @Html.ActionLink("Profile", "profile_info", "Client")
                     </li>
 
                     <li class="">
 
-                        @Html.ActionLink("New post", "AddPost", "Posts")
+                        @Html.ActionLink("New post", "InsertJobPost", "JobPost")
 
                     </li>
 
@@ -67,8 +67,9 @@
 
 
 
-    <footer class="navbar-fixed-bottom">
-        &copy; @DateTime.Now.Year reserved for freelancer Group
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Freelancing System</p>
+        <p>This is the best Freelancing website Start earning now! </p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

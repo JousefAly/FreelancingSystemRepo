@@ -1,12 +1,10 @@
 ﻿@model FreelancingSystem.Models.JobPost
 
 @{
-    ViewBag.Title = "InsertJobPost";
-    Layout = "~/Views/Shared/_FactoryLayout.cshtml";
-
+    ViewBag.Title = "Edit";
 }
 
-<h2>InsertJobPost</h2>
+<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
@@ -14,11 +12,16 @@
 
 <div class="form-horizontal">
     <h4>JobPost</h4>
-    
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.JobPostID)
+
+    <div id="msg" class="alert alert-success" style="visibility:hidden">
+        <span id="spanmsg">Added successfully</span>
+    </div>
+
     <div class="form-group">
-        <label class="control-label col-md-2" for="Name">Post Name</label>
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -51,22 +54,29 @@
         </div>
     </div>
 
-    
+
+
+
+
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" id="submit_btn" class="btn btn-primary" />
+            <input type="submit" value="Save" id="submit_btn" class="btn btn-default" />
         </div>
     </div>
-    
-
-    
-
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "InsertJobPost")
-    @Html.ActionLink("Edit Post","Edit")
-
+    @Html.ActionLink("Back to List", "Index")
 </div>
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(function(){
+        $("#submit_btn").click(function () {
+            $("#msg").fadeIn;
+            $("#spanmsg").append("Added successfully")
+        })
+    })
+</script>
