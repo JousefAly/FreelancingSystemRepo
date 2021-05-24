@@ -13,5 +13,6 @@ namespace FreelancingSystem.Models
         public int ID { get; set; }
         public int  PostID { get; set; }
         public int FreeLancerID { get; set; }
+
     }
 }

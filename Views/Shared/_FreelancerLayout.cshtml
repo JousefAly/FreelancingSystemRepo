@@ -41,7 +41,7 @@
 
             </li>
             <li>
-                <a class="active" href="#">Profile</a>
+                <a class="active" href="/Freelancer/EditProfile">Profile</a>
 
                 <!--sublists-->
 
@@ -49,8 +49,8 @@
             <li>
                 <a href="#">Jobs</a>
                 <ul>
-                    <li><a href="#">My Jobs</a></li>
-                    <li><a href="#">Saved Posts</a></li>
+                    <li><a href="/Freelancer/DisplayMyJobs">My Jobs</a></li>
+                    <li><a href="/Freelancer/DisplaySavedPosts">Saved Posts</a></li>
 
                 </ul>
             </li>
@@ -74,10 +74,11 @@
     <li><a href="#">Support</a></li>
         -->
             <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
+                @using (Html.BeginForm("Search", "JobPost"))
+                {
+                    <input type="text" placeholder="Search.." name="txt" id="txt">
                     <button type="submit">search</button>
-                </form>
+                }
             </div>
         </ul>
     </div>

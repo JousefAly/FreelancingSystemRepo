@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title -Freelancing</title>
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-        
+
     <!--Search bar menu design icon is not working-->
     <link href="~/Content/myDesign/SearchBarMenu.css" rel="stylesheet" />
-   
+
 </head>
 <body>
     <!--old menu-->
@@ -31,7 +31,6 @@
         </div>
     </div>
         -->
-
     <!--new menu-->
     <div id="container">
         <ul id="menu">
@@ -53,26 +52,27 @@
                 <a href="#">Login</a>
                 <ul>
                     <li><a href="/Freelancer/Login">Freelancer</a></li>
-                    <li><a href="#">Client</a></li>
+                    <li><a href="/Client/Login">Client</a></li>
                     <li><a href="#">Admin</a></li>
                 </ul>
             </li>
             <!-- other menus
-    <li>
-        <a href="#">Contact Me</a>
-        <ul>
-            <li><a href="#">Lorem ipsum dolor</a></li>
-            <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
-            <li><a href="#">Suspendisse fringilla</a></li>
-        </ul>
-    </li>
-    <li><a href="#">Support</a></li>
-        -->
+            <li>
+                <a href="#">Contact Me</a>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+                    <li><a href="#">Suspendisse fringilla</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Support</a></li>
+                -->
             <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
+                @using (Html.BeginForm("Search", "JobPost"))
+                {
+                    <input type="text" placeholder="Search.." name="txt" id="txt">
                     <button type="submit">search</button>
-                </form>
+                }
             </div>
         </ul>
     </div>
