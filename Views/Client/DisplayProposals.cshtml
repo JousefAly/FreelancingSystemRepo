@@ -1,60 +1,67 @@
 ﻿@model IEnumerable<FreelancingSystem.Models.Proposal>
-@using FreelancingSystem.Models;
+
 @{
     ViewBag.Title = "DisplayProposals";
 }
-<link href="~/Content/myDesign/TableStyle.css" rel="stylesheet" />
+<link href="~/Content/myDesign/TableStyle2.css" rel="stylesheet" />
 <h2>Proposals</h2>
+
 
 <table class="table">
     <tr>
         <th>
-            Post title
+            @Html.DisplayNameFor(model => model.FreelancerID)
         </th>
-
         <th>
             @Html.DisplayNameFor(model => model.FreelancerName)
         </th>
-
+        <th>
+            @Html.DisplayNameFor(model => model.PostID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FreelancerBudget)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Content)
         </th>
-
+        <th>
+            @Html.DisplayNameFor(model => model.Accepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            @{
-                FreelancingDBContext db = new FreelancingDBContext();
-                JobPost jp = db.JobPosts.Find(item.PostID);
-                string postName = jp.Name;
-
-            }
-            <td>
-               @postName
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.FreelancerName)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.FreelancerBudget)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-
-            <td>
-
-                @Html.ActionLink("Accept", "AcceptProposal", new { id = item.ID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreelancerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreelancerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreelancerBudget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
 </table>

@@ -108,7 +108,12 @@ namespace FreelancingSystem.Controllers
         // Display all the proposals of all client posts
         public ActionResult DisplayProposals()
         {
-            
+            int clientID = (int)Session["clientID"];
+            List<Proposal> proposals = new List<Proposal>();
+            proposals = (from p in db.Proposals
+                         where p.ClientID == clientID
+                         select p).ToList();
+            return View(proposals);
         }
     }
 }
