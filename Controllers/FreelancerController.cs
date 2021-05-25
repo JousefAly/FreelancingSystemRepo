@@ -121,7 +121,7 @@ namespace FreelancingSystem.Controllers
 
             db.Entry(f).State = EntityState.Modified;
             db.SaveChanges();
-            
+
 
 
             return View("EditProfile");
@@ -159,7 +159,7 @@ namespace FreelancingSystem.Controllers
                              select post).ToList();
             // now extract the exact list of posts
             List<JobPost> jobPostsLst = new List<JobPost>();
-            for(int i = 0; i < savedPostsLst.Count;i++)
+            for (int i = 0; i < savedPostsLst.Count; i++)
             {
                 //extract then add
                 JobPost post = null;
@@ -168,14 +168,14 @@ namespace FreelancingSystem.Controllers
                 post = (from p in db.JobPosts
                         where p.JobPostID == postID
                         select p).FirstOrDefault();
-                if(post != null)
+                if (post != null)
                 {
                     jobPostsLst.Add(post);
                 }
             }
             return View(jobPostsLst);
         }
-        public ActionResult DisplayMyJobs ()
+        public ActionResult DisplayMyJobs()
         {
             if (Session["userID"] == null)
                 return View("~/Views/Home/ErrorLoginFirst.cshtml");
@@ -187,6 +187,9 @@ namespace FreelancingSystem.Controllers
             return View(myJobsLst);
 
         }
+       
+       
+
 
     }
 }

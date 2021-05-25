@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\FreelancerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,6 +202,10 @@
     <Compile Include="Migrations\202105240428191_fixedColumn.cs" />
     <Compile Include="Migrations\202105240428191_fixedColumn.Designer.cs">
       <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105242154037_%27mig%27.cs" />
+    <Compile Include="Migrations\202105242154037_%27mig%27.Designer.cs">
+      <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -279,6 +284,12 @@
     <Content Include="Views\Freelancer\DisplayMyJobs.cshtml" />
     <Content Include="Views\JobPost\Search.cshtml" />
     <Content Include="Views\JobPost\SearchWall.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\RegisterAdmin.cshtml" />
+    <Content Include="Views\Admin\ErrorAdminNotFound.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105240428191_fixedColumn.resx">
       <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105242154037_%27mig%27.resx">
+      <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
