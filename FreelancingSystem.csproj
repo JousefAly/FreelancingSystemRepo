@@ -211,6 +211,18 @@
     <Compile Include="Migrations\202105250531100_added-clientName-JobPost.Designer.cs">
       <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105250813266_added-Proposal-table.cs" />
+    <Compile Include="Migrations\202105250813266_added-Proposal-table.Designer.cs">
+      <DependentUpon>202105250813266_added-Proposal-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250814389_mig1.cs" />
+    <Compile Include="Migrations\202105250814389_mig1.Designer.cs">
+      <DependentUpon>202105250814389_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250816138_added-Proposals-table.cs" />
+    <Compile Include="Migrations\202105250816138_added-Proposals-table.Designer.cs">
+      <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
@@ -221,6 +233,7 @@
     <Compile Include="Models\Freelancer.cs" />
     <Compile Include="Models\FreelancingDBContext.cs" />
     <Compile Include="Models\JobPost.cs" />
+    <Compile Include="Models\Proposal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +313,7 @@
     <Content Include="Views\Admin\EditProfile.cshtml" />
     <Content Include="Views\Admin\DisplayPostRequests.cshtml" />
     <Content Include="Views\Client\EditProfile.cshtml" />
+    <Content Include="Views\Client\DisplayMyPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -365,6 +379,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105250531100_added-clientName-JobPost.resx">
       <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250813266_added-Proposal-table.resx">
+      <DependentUpon>202105250813266_added-Proposal-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250814389_mig1.resx">
+      <DependentUpon>202105250814389_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250816138_added-Proposals-table.resx">
+      <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

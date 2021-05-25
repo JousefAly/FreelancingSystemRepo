@@ -96,5 +96,14 @@ namespace FreelancingSystem.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult DisplayMyPosts()
+        {
+            int id = (int)Session["clientID"];
+            List<JobPost> postsLst = new List<JobPost>();
+            postsLst = (from p in db.JobPosts
+                        where p.ClientID == id
+                        select p).ToList();
+            return View(postsLst);
+        }
     }
 }

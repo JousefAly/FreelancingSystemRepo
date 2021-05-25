@@ -21,6 +21,7 @@ namespace FreelancingSystem.Models
         // initialized when object is instantiated to the time of object creation
         [Display(Name ="Creation Date")]
         public DateTime CreationDate { get; set; } = DateTime.Now;
+        [Display(Name = "Proposals")]
         public int NumOfProposals { get; set; }
         //freelancer id = 0 if no freelancer is assigned
         public int FreelancerId { get; set; } 

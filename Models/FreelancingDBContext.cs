@@ -20,5 +20,6 @@ namespace FreelancingSystem.Models
         public DbSet<FrSavedPost> FrSavedPosts { get; set; }
         public DbSet<JobPostRate> JobPostRates { get; set; }
         public DbSet<FrAppliedPost> FrAppliedPosts { get; set; }
+        public DbSet<Proposal> Proposals { get; set; }
     }
 }
