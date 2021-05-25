@@ -1,6 +1,7 @@
 ﻿using FreelancingSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -79,6 +80,21 @@ namespace FreelancingSystem.Controllers
             db.SaveChanges();
             return View("PostIsSentToAdmin");
         }
-
+        public ActionResult EditProfile()
+        {
+            int id = (int)Session["clientID"];
+            Client client = null;
+            client = (from c in db.Clients
+                      where c.ClientID == id
+                      select c).FirstOrDefault();
+            return View(client);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(Client client)
+        {
+            db.Entry(client).State = EntityState.Modified;
+            db.SaveChanges();
+            return View();
+        }
     }
 }

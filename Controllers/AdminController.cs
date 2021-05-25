@@ -1,6 +1,7 @@
 ﻿using FreelancingSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -76,6 +77,7 @@ namespace FreelancingSystem.Controllers
         [HttpPost]
         public ActionResult EditProfile(Admin admin)
         {
+            db.Entry(admin).State = EntityState.Modified;
             // return to the same page to see the new changes
             return View("EditProfile");
         }
