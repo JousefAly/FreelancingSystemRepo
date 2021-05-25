@@ -18,7 +18,7 @@
 
 
     <header class="navbar navbar-inverse navbar-fixed-top" >
-        <div class="btn-group" style="margin:0; padding:0;">
+        <div class="btn-group" ">
             <a class="button" href="/Client/Home">Home</a>
             <a class="button" href="/Client/Logout">Logout</a>
 
@@ -42,19 +42,19 @@
                         @Html.ActionLink("Profile", "EditProfile", "Client")
                     </li>
 
-                    <li class="">
+                    <li >
 
                         @Html.ActionLink("New post", "CreatePost", "Client")
 
                     </li>
 
-                    <li class="">
+                    <li >
 
                         @Html.ActionLink("My posts", "DisplayMyPosts", "Client")
                     </li>
 
-                    <li class="">
-                        <a class="" href="#">Received proposals</a>
+                    <li >
+                        <a href="/Client/DisplayProposals">Received proposals</a>
                     </li>
                 </ul>
             </nav>

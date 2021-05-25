@@ -105,5 +105,15 @@ namespace FreelancingSystem.Controllers
                         select p).ToList();
             return View(postsLst);
         }
+        // Display all the proposals of all client posts
+        //public ActionResult DisplayProposals()
+        //{
+
+        //    List<Proposal> ProposalsLst = new List<Proposal>();
+        //    ProposalsLst = (from p in db.Proposals
+        //                    where p.PostID == id
+        //                    select p).ToList();
+        //    return View(ProposalsLst);
+        //}
     }
 }

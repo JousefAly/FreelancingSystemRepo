@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FreelancingSystem.Models.Proposal>
+@using FreelancingSystem.Models;
+@{
+    ViewBag.Title = "DisplayProposals";
+}
+<link href="~/Content/myDesign/TableStyle.css" rel="stylesheet" />
+<h2>Proposals</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Post title
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FreelancerName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FreelancerBudget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @{
+                FreelancingDBContext db = new FreelancingDBContext();
+                JobPost jp = db.JobPosts.Find(item.PostID);
+                string postName = jp.Name;
+
+            }
+            <td>
+               @postName
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FreelancerName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FreelancerBudget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Accept", "AcceptProposal", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

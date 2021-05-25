@@ -223,13 +223,17 @@
     <Compile Include="Migrations\202105250816138_added-Proposals-table.Designer.cs">
       <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105250858297_added-ClientProposals-table.cs" />
+    <Compile Include="Migrations\202105250858297_added-ClientProposals-table.Designer.cs">
+      <DependentUpon>202105250858297_added-ClientProposals-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
     <Compile Include="Models\JobPostRate.cs" />
     <Compile Include="Models\FrSavedPost.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\ClientPost.cs" />
+    <Compile Include="Models\ClientProposal.cs" />
     <Compile Include="Models\Freelancer.cs" />
     <Compile Include="Models\FreelancingDBContext.cs" />
     <Compile Include="Models\JobPost.cs" />
@@ -314,6 +318,7 @@
     <Content Include="Views\Admin\DisplayPostRequests.cshtml" />
     <Content Include="Views\Client\EditProfile.cshtml" />
     <Content Include="Views\Client\DisplayMyPosts.cshtml" />
+    <Content Include="Views\Client\DisplayProposals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -388,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105250816138_added-Proposals-table.resx">
       <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250858297_added-ClientProposals-table.resx">
+      <DependentUpon>202105250858297_added-ClientProposals-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

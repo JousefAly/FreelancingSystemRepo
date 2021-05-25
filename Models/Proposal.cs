@@ -18,6 +18,7 @@ namespace FreelancingSystem.Models
         public int PostID { get; set; }
         [Display(Name = "Requested budget")]
         public decimal FreelancerBudget { get; set; }
+        [Display(Name = "Request")]
         public string Content { get; set; }
         public bool Accepted { get; set; } = false;
 
