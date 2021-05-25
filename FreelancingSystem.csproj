@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202105242154037_%27mig%27.Designer.cs">
       <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105250531100_added-clientName-JobPost.cs" />
+    <Compile Include="Migrations\202105250531100_added-clientName-JobPost.Designer.cs">
+      <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
@@ -226,6 +230,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\myDesign\factoryStyle.css" />
     <Content Include="Content\myDesign\FLPostOptionsStyle.css" />
+    <Content Include="Content\myDesign\FormStyle.css" />
     <Content Include="Content\myDesign\JobPostsStyle.css" />
     <Content Include="Content\myDesign\List2Style.css" />
     <Content Include="Content\myDesign\SearchBarMenu.css" />
@@ -290,6 +295,10 @@
     <Content Include="Views\Admin\RegisterAdmin.cshtml" />
     <Content Include="Views\Admin\ErrorAdminNotFound.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Client\PostIsSentToAdmin.cshtml" />
+    <Content Include="Views\Client\CreatePost.cshtml" />
+    <Content Include="Views\Admin\EditProfile.cshtml" />
+    <Content Include="Views\Admin\DisplayPostRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105242154037_%27mig%27.resx">
       <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250531100_added-clientName-JobPost.resx">
+      <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

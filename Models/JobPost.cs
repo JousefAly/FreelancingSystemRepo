@@ -26,6 +26,8 @@ namespace FreelancingSystem.Models
         public int FreelancerId { get; set; } 
         // true if approved by admin otherwise false
         public bool Approved { get; set; } = false;
+        [Display(Name="Client Name")]
+        public string ClientName { get; set; }
 
     }
 }

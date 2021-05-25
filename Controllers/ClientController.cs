@@ -66,6 +66,19 @@ namespace FreelancingSystem.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult CreatePost()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreatePost(JobPost post)
+        {
+
+            post.ClientID = (int)Session["ClientID"];
+            db.JobPosts.Add(post);
+            db.SaveChanges();
+            return View("PostIsSentToAdmin");
+        }
 
     }
 }

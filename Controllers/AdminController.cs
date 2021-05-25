@@ -43,16 +43,59 @@ namespace FreelancingSystem.Controllers
 
             if (ad != null && password == ad.Password)
             {
-            
+
                 //store the user id of the logined user to access it later
-                Session["userID"] = ad.AdminID;
-                return RedirectToAction("Index"); 
+                Session["adminID"] = ad.AdminID;
+                return RedirectToAction("Index");
             }
             else
             {
 
                 return View("ErrorAdminNotFound");
             }
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult EditProfile()
+        {
+
+
+            if (Session["adminID"] != null)
+            {
+                int id = (int)Session["adminID"];
+                Admin admn = db.Admins.Find(id);
+                return View(admn);
+            }
+            else
+                return RedirectToAction("Index","Home");
+
+        }
+        [HttpPost]
+        public ActionResult EditProfile(Admin admin)
+        {
+            // return to the same page to see the new changes
+            return View("EditProfile");
+        }
+        public ActionResult DisplayPostRequests()
+        {
+            var postsLst = new List<JobPost>();
+            postsLst = (from p in db.JobPosts
+                        where p.Approved == false
+                        select p).ToList();
+            return View(postsLst);
+        }
+        public ActionResult ApprovePost(int id)
+        {
+            JobPost jobPost = null;
+            jobPost = (from p in db.JobPosts
+                       where p.JobPostID == id
+                       select p).FirstOrDefault();
+            jobPost.Approved = true;
+            db.SaveChanges();
+            return RedirectToAction("DisplayPostRequests");
         }
     }
 }
