@@ -21,6 +21,8 @@ namespace FreelancingSystem.Models
         [Display(Name = "Request")]
         public string Content { get; set; }
         public bool Accepted { get; set; } = false;
+        
+        public int ClientID { get; set; }
 
     }
 }
