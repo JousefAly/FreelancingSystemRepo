@@ -1,16 +1,48 @@
 ﻿
-header {
-    margin-top: 20px;
+.MHAnav{
+    background-color:#ddd
+}
+body{
+    margin-top: 0;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-header h1 {
-    text-align: center;
-    color: orange
+input,
+select,
+textarea {
+    max-width: 280px;
 }
+.myrow {
+    margin-right: 0px;
+}
+  .H-nav{
+      background:#ccc;
+      width: 100%
+  }
+  .H-nav li{
+      display:inline-block;
+  }
+  .header{
+      position:relative;
+      left:560px;
+  }
+    
 
-ul {
-    list-style-type: none;
-}
+    .logout{
+        float:right;
+        position:relative;
+        top:42px;
+    }
+        .logout:hover{
+            color: red;
+            
+        }
+        ul {
+            list-style-type: none;
+        }
 
 li {
     padding: 10px;
@@ -33,10 +65,7 @@ aside {
     margin-top: 120px;
 }
 
-footer {
-   
-    color: aliceblue;
-    
+
+.logout {
+    float: right;
 }
-
-

@@ -8,21 +8,25 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
    
-    <link href="~/Content/myDesign/factoryStyle.css" rel="stylesheet" />
-    <!--   <link href="~/Design/StyleSheet1.css" rel="stylesheet" />  -->
+
+   
 </head>
 
 
-<body class="container-fluid">
+<body class="">
+
+    <nav class="H-nav">
+        <ul>
+            <li class="header"><h2>Freelancer Site</h2></li>
+            <li class="logout"><button><i class="glyphicon glyphicon-log-out"></i>  Log out</button></li>
+
+        </ul>
+    </nav>
+       
+   
 
 
-    <header class="navbar navbar-inverse navbar-fixed-top">
-        <h1>Freelancer site</h1>
-    </header>
-
-
-
-    <div class="row">
+    <div class="row myrow">
 
 
 
@@ -67,13 +71,14 @@
 
 
 
-    <footer>
+    <footer >
         <p>&copy; @DateTime.Now.Year - Freelancing System</p>
         <p>This is the best Freelancing website Start earning now! </p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+   
 
 </body>
 </html>

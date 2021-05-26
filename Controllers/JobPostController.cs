@@ -53,7 +53,8 @@ namespace FreelancingSystem.Controllers
             db.JobPosts.Add(PI);
 
             db.SaveChanges();
-            return RedirectToAction("Home","Client");
+            return View();
+          //  return RedirectToAction("Home","Client");
 
 
         }

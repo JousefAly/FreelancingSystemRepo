@@ -24,10 +24,10 @@ namespace FreelancingSystem
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/myDesign/factoryStyle.css"));
             // new bundle for codepen style
             bundles.Add(new StyleBundle("~/myDesign").Include(
-                "~/Content/myDesign/JobPostsStyle.css"));
+                "~/Content/myDesign/factoryStyle.css"));
         }
     }
 }
