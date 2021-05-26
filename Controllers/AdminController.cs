@@ -71,7 +71,7 @@ namespace FreelancingSystem.Controllers
                 return View(admn);
             }
             else
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
 
         }
         [HttpPost]
@@ -98,6 +98,70 @@ namespace FreelancingSystem.Controllers
             jobPost.Approved = true;
             db.SaveChanges();
             return RedirectToAction("DisplayPostRequests");
+        }
+        public ActionResult DisplayFreelancers()
+        {
+            var frelancers = new List<Freelancer>();
+            frelancers = (from f in db.Freelancers
+                          select f).ToList();
+            return View(frelancers);
+        }
+        public ActionResult DetailsFreelancer(int id)
+        {
+            Freelancer freelancer = db.Freelancers.Find(id);
+            //list of budgets of his jobs
+            List<decimal> budgets = new List<decimal>();
+            budgets = (from j in db.JobPosts
+                       where j.FreelancerId == id
+                       select j.Budget).ToList();
+            decimal amount = 0;
+            for (int i = 0; i < budgets.Count; i++)
+            {
+                amount += budgets[i];
+            }
+            ViewBag.amount = amount;
+            ViewBag.jobs = (from j in db.JobPosts
+                            where j.FreelancerId == id
+                            select j).Count();
+            ViewBag.appliedJobs = (from p in db.Proposals
+                                   where p.FreelancerID == id
+                                   select p).Count();
+            return View(freelancer);
+        }
+        public ActionResult DeleteFreelancer(int id)
+        {
+            Freelancer f = db.Freelancers.Find(id);
+            ViewBag.name = f.FirstName;
+            //we need to check if freelancer did proposals we need to delete to prevent system from crashes.
+            List<Proposal> props = new List<Proposal>();
+            props = (from p in db.Proposals
+                     where p.FreelancerID == id
+                     select p).ToList();
+            //now delete every item in proposals if its not accepted by client
+            for(int i = 0;i<props.Count;i++)
+            {
+                if(!props[i].Accepted)
+                {
+                    db.Proposals.Remove(props[i]);
+                    db.SaveChanges();
+                }
+            }
+            db.Freelancers.Remove(f);
+            db.SaveChanges();
+            return View();
+
+        }
+        public ActionResult EditFreelancer(int id)
+        {
+            Freelancer flancer = db.Freelancers.Find(id);
+            return View(flancer);
+        }
+        [HttpPost]
+        public ActionResult EditFreelancer(Freelancer freelancer)
+        {
+            db.Entry(freelancer).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("EditFreelancer");
         }
     }
 }

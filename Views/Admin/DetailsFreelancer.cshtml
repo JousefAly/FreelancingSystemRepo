@@ -1,0 +1,11 @@
+﻿@model FreelancingSystem.Models.Freelancer
+@{
+    ViewBag.Title = "DetailsFreelancer";
+}
+
+<h2>Frelancer Details:</h2>
+<h4 style="color:chocolate"> Name: @Model.FirstName @Model.LastName.</h4>
+<h4>Applied in @ViewBag.appliedJobs jobs.  Performed @ViewBag.jobs jobs.</h4>
+
+<h4>Earned: @ViewBag.amount.ToString("C") .</h4>
+
