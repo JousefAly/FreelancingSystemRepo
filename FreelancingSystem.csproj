@@ -337,6 +337,10 @@
     <Content Include="Views\Admin\DetailsFreelancer.cshtml" />
     <Content Include="Views\Admin\DeleteFreelancer.cshtml" />
     <Content Include="Views\Admin\EditFreelancer.cshtml" />
+    <Content Include="Views\Admin\DisplayClients.cshtml" />
+    <Content Include="Views\Admin\DetailsClient.cshtml" />
+    <Content Include="Views\Admin\EditClient.cshtml" />
+    <Content Include="Views\Admin\DeleteClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

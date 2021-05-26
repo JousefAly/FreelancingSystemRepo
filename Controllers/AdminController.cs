@@ -138,9 +138,9 @@ namespace FreelancingSystem.Controllers
                      where p.FreelancerID == id
                      select p).ToList();
             //now delete every item in proposals if its not accepted by client
-            for(int i = 0;i<props.Count;i++)
+            for (int i = 0; i < props.Count; i++)
             {
-                if(!props[i].Accepted)
+                if (!props[i].Accepted)
                 {
                     db.Proposals.Remove(props[i]);
                     db.SaveChanges();
@@ -162,6 +162,65 @@ namespace FreelancingSystem.Controllers
             db.Entry(freelancer).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("EditFreelancer");
+        }
+        public ActionResult DisplayClients()
+        {
+            var clients = new List<Client>();
+            clients = (from f in db.Clients
+                       select f).ToList();
+            return View(clients);
+        }
+        public ActionResult DetailsClient(int id)
+        {
+            Client client = db.Clients.Find(id);
+            var clientPosts = new List<JobPost>();
+            clientPosts = (from p in db.JobPosts
+                           where p.ClientID == id
+                           select p).ToList();
+            int numOfPosts = clientPosts.Count;
+            int acceptedPosts = 0;
+            int workedPosts = 0;
+            decimal totalPaid = 0;
+            for (int i = 0; i < clientPosts.Count; i++)
+            {
+                JobPost post = clientPosts[i];
+                if(post.Approved)
+                {
+                    acceptedPosts++;
+                    if(post.FreelancerId != 0)
+                    {
+                        workedPosts++;
+                        totalPaid += post.Budget;
+                    }    
+                    
+                }
+
+            }
+            ViewBag.numOfPosts = numOfPosts;
+            ViewBag.acceptedPosts = acceptedPosts;
+            ViewBag.workedPosts = workedPosts;
+            ViewBag.totalPaid = totalPaid;
+            return View(client);
+
+        }
+        public ActionResult EditClient(int id)
+        {
+            Client client = db.Clients.Find(id);
+            return View(client);
+        }
+        [HttpPost]
+        public ActionResult EditClient(Client client)
+        {
+            db.Entry(client).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("EditClient");
+        }
+        public ActionResult DeleteClient(int id)
+        {
+            Client client = db.Clients.Find(id);
+            db.Clients.Remove(client);
+            db.SaveChanges();
+            return View();
         }
     }
 }
