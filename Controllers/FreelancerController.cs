@@ -89,7 +89,7 @@ namespace FreelancingSystem.Controllers
                 post.PostID = id;
                 db.FrSavedPosts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("PostIsSaved");
+                return View("PostIsSaved");
             }
             else
             {
@@ -126,27 +126,61 @@ namespace FreelancingSystem.Controllers
 
             return View("EditProfile");
         }
+
+        //public ActionResult ApplyPost(int id)
+        //{
+        //    //check first if it is already applied
+        //    FrAppliedPost post = null;
+        //    int userID = (int)Session["userID"];
+        //    post = (from p in db.FrAppliedPosts
+        //            where p.PostID == id && p.FreelancerID == userID
+        //            select p).FirstOrDefault();
+        //    if (post == null)
+        //    {
+        //        post = new FrAppliedPost();
+        //        post.FreelancerID = userID;
+        //        post.PostID = id;
+        //        db.FrAppliedPosts.Add(post);
+        //        db.SaveChanges();
+        //        return View("JobIsApplied");
+        //    }
+        //    else
+        //    {
+        //        return View("ErrorPostIsApplied");
+        //    }
+        //}
+
+        //take the id of the post to be applied
         public ActionResult ApplyPost(int id)
         {
-            //check first if it is already applied
-            FrAppliedPost post = null;
+            //Check first if post is not applied
+            Proposal pr = null;
             int userID = (int)Session["userID"];
-            post = (from p in db.FrAppliedPosts
-                    where p.PostID == id && p.FreelancerID == userID
-                    select p).FirstOrDefault();
-            if (post == null)
+            pr = (from p in db.Proposals
+                  where p.PostID == id && p.FreelancerID == userID
+                  select p).FirstOrDefault();
+            if (pr == null)
             {
-                post = new FrAppliedPost();
-                post.FreelancerID = userID;
-                post.PostID = id;
-                db.FrAppliedPosts.Add(post);
-                db.SaveChanges();
-                return RedirectToAction("JobIsApplied");
+
+                JobPost post = db.JobPosts.Find(id);
+                ViewBag.post = post;
+                return View();
             }
-            else
-            {
                 return View("ErrorPostIsApplied");
-            }
+        }
+        [HttpPost]
+        public ActionResult ApplyPost(Proposal p)
+        {
+            // recive post ID as hidden input from the form
+            int postID = p.PostID;
+            int fID = (int)Session["userID"];
+            JobPost post = db.JobPosts.Find(postID);
+            p.ClientID = post.ClientID;
+            p.FreelancerName = db.Freelancers.Find(fID).FirstName;
+            p.FreelancerID = fID;
+            db.Proposals.Add(p);
+            db.SaveChanges();
+            return View("JobIsApplied");
         }
         public ActionResult DisplaySavedPosts()
         {
@@ -187,8 +221,8 @@ namespace FreelancingSystem.Controllers
             return View(myJobsLst);
 
         }
-       
-       
+
+
 
 
     }

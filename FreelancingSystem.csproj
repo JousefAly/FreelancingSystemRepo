@@ -231,6 +231,14 @@
     <Compile Include="Migrations\202105250922141_mig2.Designer.cs">
       <DependentUpon>202105250922141_mig2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105260731381_mig3.cs" />
+    <Compile Include="Migrations\202105260731381_mig3.Designer.cs">
+      <DependentUpon>202105260731381_mig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105260758371_back.cs" />
+    <Compile Include="Migrations\202105260758371_back.Designer.cs">
+      <DependentUpon>202105260758371_back.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
@@ -256,6 +264,7 @@
     <Content Include="Content\myDesign\List2Style.css" />
     <Content Include="Content\myDesign\SearchBarMenu.css" />
     <Content Include="Content\myDesign\TableStyle.css" />
+    <Content Include="Content\myDesign\TableStyle2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -323,6 +332,7 @@
     <Content Include="Views\Client\EditProfile.cshtml" />
     <Content Include="Views\Client\DisplayMyPosts.cshtml" />
     <Content Include="Views\Client\DisplayProposals.cshtml" />
+    <Content Include="Views\Freelancer\ApplyPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -403,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105250922141_mig2.resx">
       <DependentUpon>202105250922141_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260731381_mig3.resx">
+      <DependentUpon>202105260731381_mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260758371_back.resx">
+      <DependentUpon>202105260758371_back.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

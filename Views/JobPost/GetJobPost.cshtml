@@ -17,7 +17,8 @@
 <div>
     <h1>@Model.Name</h1>
     <h2>@Model.Discreption</h2>
-    <h3>Budget = @Model.Budget </h3>
+    <h3>Budget = @Model.Budget.ToString("C")    (@Model.Type)</h3>
+
     <h4>@Model.CreationDate.ToString("dddd, dd MMMM yyyy")</h4>
 </div>
 <div class="btn-group">

@@ -11,7 +11,7 @@ namespace FreelancingSystem.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobPostID { get; set; }
-        [Display(Name="Title")]
+        [Display(Name="Job Name")]
         public string Name { get; set; } = string.Empty;
         public int ClientID { get; set; }
         public string Discreption { get; set; } = string.Empty;

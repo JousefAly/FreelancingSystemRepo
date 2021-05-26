@@ -115,5 +115,20 @@ namespace FreelancingSystem.Controllers
                          select p).ToList();
             return View(proposals);
         }
+        public ActionResult AcceptProposal(int id)
+        {
+
+            Proposal p = db.Proposals.Find(id);
+            p.Accepted = true;
+            JobPost post = db.JobPosts.Find(p.PostID);
+            //  updadate the freelancerID to assign it to afreelancer and stop view it in the posts
+            // also update the budget for the freelancer budget as the client accept the proposal.
+            // then remove the proposal from proposals list
+            post.FreelancerId = p.FreelancerID;
+            post.Budget = p.FreelancerBudget;
+            db.Proposals.Remove(p);
+            db.SaveChanges();
+            return RedirectToAction("DisplayProposals");
+        }
     }
 }

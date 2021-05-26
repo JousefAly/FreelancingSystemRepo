@@ -109,3 +109,5 @@ C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migration
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedProposalstable.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedClientProposalstable.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig2.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig3.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.back.resources
