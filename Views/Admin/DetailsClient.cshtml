@@ -1,0 +1,10 @@
+﻿@model FreelancingSystem.Models.Client
+@{
+    ViewBag.Title = "DetailsClient";
+}
+
+<h1 style="color:chocolate">Name : @Model.FirstName @Model.LastName</h1>
+<h3>Posted @ViewBag.numOfPosts posts, Accepted(@ViewBag.acceptedPosts) </h3>
+<h3>Implemented(@ViewBag.workedPosts) posts.</h3>
+<h3>Total amount paid to freelancers: @ViewBag.totalPaid.ToString("C").</h3>
+

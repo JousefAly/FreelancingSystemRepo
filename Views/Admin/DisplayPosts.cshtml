@@ -1,0 +1,80 @@
+﻿@model IEnumerable<FreelancingSystem.Models.JobPost>
+<link href="~/Content/myDesign/TableStyle.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "DisplayPosts";
+}
+
+<h2>Job Posts</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discreption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfProposals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreelancerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approved)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ClientName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Discreption)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Budget)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreationDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumOfProposals)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FreelancerId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Approved)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "EditPost", new { id = item.JobPostID }) |
+        @Html.ActionLink("Delete", "DeletePost", new { id = item.JobPostID })
+    </td>
+</tr>
+}
+
+</table>

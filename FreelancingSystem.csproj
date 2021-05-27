@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\FreelancerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,16 +203,53 @@
     <Compile Include="Migrations\202105240428191_fixedColumn.Designer.cs">
       <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105242154037_%27mig%27.cs" />
+    <Compile Include="Migrations\202105242154037_%27mig%27.Designer.cs">
+      <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250531100_added-clientName-JobPost.cs" />
+    <Compile Include="Migrations\202105250531100_added-clientName-JobPost.Designer.cs">
+      <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250813266_added-Proposal-table.cs" />
+    <Compile Include="Migrations\202105250813266_added-Proposal-table.Designer.cs">
+      <DependentUpon>202105250813266_added-Proposal-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250814389_mig1.cs" />
+    <Compile Include="Migrations\202105250814389_mig1.Designer.cs">
+      <DependentUpon>202105250814389_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250816138_added-Proposals-table.cs" />
+    <Compile Include="Migrations\202105250816138_added-Proposals-table.Designer.cs">
+      <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250858297_added-ClientProposals-table.cs" />
+    <Compile Include="Migrations\202105250858297_added-ClientProposals-table.Designer.cs">
+      <DependentUpon>202105250858297_added-ClientProposals-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105250922141_mig2.cs" />
+    <Compile Include="Migrations\202105250922141_mig2.Designer.cs">
+      <DependentUpon>202105250922141_mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105260731381_mig3.cs" />
+    <Compile Include="Migrations\202105260731381_mig3.Designer.cs">
+      <DependentUpon>202105260731381_mig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105260758371_back.cs" />
+    <Compile Include="Migrations\202105260758371_back.Designer.cs">
+      <DependentUpon>202105260758371_back.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
     <Compile Include="Models\JobPostRate.cs" />
     <Compile Include="Models\FrSavedPost.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\ClientPost.cs" />
+    <Compile Include="Models\ClientProposal.cs" />
     <Compile Include="Models\Freelancer.cs" />
     <Compile Include="Models\FreelancingDBContext.cs" />
     <Compile Include="Models\JobPost.cs" />
+    <Compile Include="Models\Proposal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,10 +259,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\myDesign\factoryStyle.css" />
     <Content Include="Content\myDesign\FLPostOptionsStyle.css" />
+    <Content Include="Content\myDesign\FormStyle.css" />
     <Content Include="Content\myDesign\JobPostsStyle.css" />
     <Content Include="Content\myDesign\List2Style.css" />
     <Content Include="Content\myDesign\SearchBarMenu.css" />
     <Content Include="Content\myDesign\TableStyle.css" />
+    <Content Include="Content\myDesign\TableStyle2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -279,6 +319,31 @@
     <Content Include="Views\Freelancer\DisplayMyJobs.cshtml" />
     <Content Include="Views\JobPost\Search.cshtml" />
     <Content Include="Views\JobPost\SearchWall.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\RegisterAdmin.cshtml" />
+    <Content Include="Views\Admin\ErrorAdminNotFound.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Client\PostIsSentToAdmin.cshtml" />
+    <Content Include="Views\Client\CreatePost.cshtml" />
+    <Content Include="Views\Admin\EditProfile.cshtml" />
+    <Content Include="Views\Admin\DisplayPostRequests.cshtml" />
+    <Content Include="Views\Client\EditProfile.cshtml" />
+    <Content Include="Views\Client\DisplayMyPosts.cshtml" />
+    <Content Include="Views\Client\DisplayProposals.cshtml" />
+    <Content Include="Views\Freelancer\ApplyPost.cshtml" />
+    <Content Include="Views\Admin\DisplayFreelancers.cshtml" />
+    <Content Include="Views\Admin\DetailsFreelancer.cshtml" />
+    <Content Include="Views\Admin\DeleteFreelancer.cshtml" />
+    <Content Include="Views\Admin\EditFreelancer.cshtml" />
+    <Content Include="Views\Admin\DisplayClients.cshtml" />
+    <Content Include="Views\Admin\DetailsClient.cshtml" />
+    <Content Include="Views\Admin\EditClient.cshtml" />
+    <Content Include="Views\Admin\DeleteClient.cshtml" />
+    <Content Include="Views\Admin\DisplayPosts.cshtml" />
+    <Content Include="Views\Admin\EditPost.cshtml" />
+    <Content Include="Views\Admin\DeletePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,6 +403,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105240428191_fixedColumn.resx">
       <DependentUpon>202105240428191_fixedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105242154037_%27mig%27.resx">
+      <DependentUpon>202105242154037_%27mig%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250531100_added-clientName-JobPost.resx">
+      <DependentUpon>202105250531100_added-clientName-JobPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250813266_added-Proposal-table.resx">
+      <DependentUpon>202105250813266_added-Proposal-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250814389_mig1.resx">
+      <DependentUpon>202105250814389_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250816138_added-Proposals-table.resx">
+      <DependentUpon>202105250816138_added-Proposals-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250858297_added-ClientProposals-table.resx">
+      <DependentUpon>202105250858297_added-ClientProposals-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105250922141_mig2.resx">
+      <DependentUpon>202105250922141_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260731381_mig3.resx">
+      <DependentUpon>202105260731381_mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260758371_back.resx">
+      <DependentUpon>202105260758371_back.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

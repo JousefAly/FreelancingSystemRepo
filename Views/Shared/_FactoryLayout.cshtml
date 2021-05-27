@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -18,7 +19,7 @@
 
 
     <header class="navbar navbar-inverse navbar-fixed-top" >
-        <div class="btn-group" style="margin:0; padding:0;">
+        <div class="btn-group" ">
             <a class="button" href="/Client/Home">Home</a>
             <a class="button" href="/Client/Logout">Logout</a>
 
@@ -28,33 +29,33 @@
 
 
 
-    <div class="row">
+    <div class="row" >
 
 
 
-        <aside class="col-md-4">
+        <aside class="col-md-4" >
 
 
-            <nav class="">
-                <ul class="">
+            <nav >
+                <ul >
 
-                    <li class="">
-                        <a class="" href="#">Profile</a>
+                    <li >
+                        @Html.ActionLink("Profile", "EditProfile", "Client")
                     </li>
 
-                    <li class="">
+                    <li >
 
-                        @Html.ActionLink("New post", "AddPost", "Posts")
+                        @Html.ActionLink("New post", "CreatePost", "Client")
 
                     </li>
 
-                    <li class="">
+                    <li >
 
-                        @Html.ActionLink("My posts", "Index", "Posts")
+                        @Html.ActionLink("My posts", "DisplayMyPosts", "Client")
                     </li>
 
-                    <li class="">
-                        <a class="" href="#">Received proposals</a>
+                    <li >
+                        <a href="/Client/DisplayProposals">Received proposals</a>
                     </li>
                 </ul>
             </nav>

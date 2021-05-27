@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Freelancing</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/myDesign/SearchBarMenu.css" rel="stylesheet" />
+    
+</head>
+<body>
+    @{
+        //checks if admin is logined otherwise go log in
+        if (Session["adminID"] == null)
+        {
+            Response.Redirect("/Home/ErrorLoginFirst");
+        }
+    }
+
+    <div id="container">
+        <ul id="menu">
+            <li>
+                <a class="active" href="/Admin/Index">Home</a>
+
+                <!--sublists-->
+
+            </li>
+            <li>
+                <a class="active" href="/Admin/EditProfile">Profile</a>
+
+                <!--sublists-->
+
+            </li>
+            <li>
+                <a href="#">Users Page</a>
+                <ul>
+                    <li><a href="/Admin/DisplayFreelancers">Freelancers</a></li>
+                    <li><a href="/Admin/DisplayClients">Clients</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a class="active" href="/Admin/DisplayPosts">Posts Page</a>
+
+                <!--sublists-->
+
+            </li>
+            <li>
+                <a class="active" href="/Admin/DisplayPostRequests">Posts Requests</a>
+
+                <!--sublists-->
+
+            </li>
+            <li>
+                <a class="active" href="/Admin/Logout" style="float:right;">Log out</a>
+
+                <!--sublists-->
+
+            </li>
+
+
+            <!-- other menus
+            <li>
+                <a href="#">Contact Me</a>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+                    <li><a href="#">Suspendisse fringilla</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Support</a></li>
+                -->
+
+        </ul>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Freelancing System</p>
+            <p>This is the best Freelancing website Start earning now! </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

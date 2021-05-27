@@ -102,3 +102,12 @@ C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migration
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedFrApplidPoststable.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.fix.resources
 C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.fixedColumn.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedclientNameJobPost.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedProposaltable.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig1.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedProposalstable.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.addedClientProposalstable.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig2.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.mig3.resources
+C:\Users\PC\source\repos\FreelancingSystem\obj\Debug\FreelancingSystem.Migrations.back.resources

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FreelancingSystem.Models.Proposal>
+@using FreelancingSystem.Models;
+@{
+    ViewBag.Title = "DisplayProposals";
+}
+<link href="~/Content/myDesign/TableStyle2.css" rel="stylesheet" />
+<h2>Proposals</h2>
+@{
+    //check first if list have proposals
+    if (!Model.Any())
+    {
+        <h1>No Recived Proposals !</h1>
+    }
+    else
+    {
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    Requested Job
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerBudget)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                // if job is assigned to a freelancer dont display the job
+                if (item.FreelancerID == 0)
+                {
+
+                    //git the post name for the proposal
+                    FreelancingDBContext db = new FreelancingDBContext();
+                    string postName = db.JobPosts.Find(item.PostID).Name;
+
+                    <tr>
+                        <td>
+                            @postName
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FreelancerName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FreelancerBudget)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </td>
+
+                        <td>
+
+                            @Html.ActionLink("Accept", "AcceptProposal", new { id = item.ID })
+                        </td>
+                    </tr>
+
+                }
+            }
+
+        </table>
+    }
+}
+

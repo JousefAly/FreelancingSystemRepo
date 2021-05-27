@@ -21,6 +21,7 @@ namespace FreelancingSystem.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+        public int FreelancerID { get; set; }
         public JobPostRates Rate { get; set; }
         //rated post
         public int PostID { get; set; }
