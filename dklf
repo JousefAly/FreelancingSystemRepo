@@ -1,0 +1,134 @@
+[33mcommit 7d95db4a19730babf4b78aad36e76c277ed3c664[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: a64b342 82ac2d9
+Author: Yousef Aly <76612827+JousefAly@users.noreply.github.com>
+Date:   Thu May 27 09:13:07 2021 +0200
+
+    Merge pull request #3 from JousefAly/yousefbranch
+    
+    Yousefbranch
+
+[33mcommit 82ac2d98d9b946879d873a0463877942e54d7318[m[33m ([m[1;31morigin/yousefbranch[m[33m, [m[1;32myousefbranch[m[33m)[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Thu May 27 09:10:41 2021 +0200
+
+    System version 1.0 except ratePost
+
+[33mcommit 3c71625750ad2c0b9086a712b18ca1f8d4d9e023[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Wed May 26 18:50:29 2021 +0200
+
+    Added Admin control users
+
+[33mcommit 39732abf97cc640050542d67b31ac8c5f45be222[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Wed May 26 17:30:50 2021 +0200
+
+    Admin features added
+
+[33mcommit 0b35e50dff58ab10a2a89881bb14bf67111dbcaa[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Wed May 26 13:30:48 2021 +0200
+
+    completed system main interactions
+
+[33mcommit 12ab313c4b8974b60778b448288dc698267c80fd[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 11:38:16 2021 +0200
+
+    Added-new-features
+
+[33mcommit 1408aa5cd947f9bda7e4fc470ff812f5c183c0ec[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 11:24:06 2021 +0200
+
+    edit
+
+[33mcommit 7056985ecfff8a517b969d6fb8916de8eabf8dff[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 11:00:03 2021 +0200
+
+    Added ClientProposals table
+
+[33mcommit 403197bdada374c1605f0d60546afd9c41ca1b79[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 10:17:37 2021 +0200
+
+    Added Proposals table
+
+[33mcommit 2ff0b919edcd6a5067739be5f3c4d3e28dfb387b[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 09:06:41 2021 +0200
+
+    Client 2 features
+
+[33mcommit c521174cbf7a9671ac7d6805eed9067748df24ac[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 08:24:17 2021 +0200
+
+    Approved JobPost by Admin
+
+[33mcommit 5dc14a7de180d26f924f05db121b0e00e12897ae[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Tue May 25 02:21:08 2021 +0200
+
+    Added Admin authontication
+
+[33mcommit a64b342c20019cf302412c2bc4b41012b7b5ba54[m
+Merge: 969860f cea05dd
+Author: Yousef Aly <76612827+JousefAly@users.noreply.github.com>
+Date:   Mon May 24 11:52:02 2021 +0200
+
+    Merge pull request #2 from JousefAly/yousefbranch
+    
+    Yousefbranch
+
+[33mcommit cea05dd2811e47b4340a8ad311b4f34bd937fc2f[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Mon May 24 11:19:33 2021 +0200
+
+    Ended Freelancer features
+
+[33mcommit 22688713aecb021fe0d6f6f1b914b39c980e6022[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Mon May 24 07:39:24 2021 +0200
+
+    added creation date
+
+[33mcommit 87cabe14e19e3899fda0fc1658957802efd791eb[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Mon May 24 07:26:36 2021 +0200
+
+    AddedClientLogin
+
+[33mcommit 33636041ff6d6f21973ba31328334d27e4825cf8[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Mon May 24 03:01:47 2021 +0200
+
+    added factory layout and login client
+
+[33mcommit 969860ffab0f139ce0daf92cabd24ce40245938a[m
+Merge: 1cc795b ba66037
+Author: Yousef Aly <76612827+JousefAly@users.noreply.github.com>
+Date:   Sun May 23 22:47:15 2021 +0200
+
+    Merge pull request #1 from JousefAly/yousefbranch
+    
+    fixed database added features
+
+[33mcommit 1b69c3135466a18e8026bc284da2e4f1db91a921[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Sun May 23 22:42:05 2021 +0200
+
+    c
+
+[33mcommit ba6603748c0a6e6c2858745f35a6a8dc9421350b[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Sun May 23 22:26:19 2021 +0200
+
+    fixed database added features
+
+[33mcommit 1cc795b2e79fcfda9a3fe5c576944a8f5a1f2d6d[m
+Author: Yousef Aly <youssefali00286@gmail.com>
+Date:   Sun May 23 03:03:21 2021 +0200
+
+    init

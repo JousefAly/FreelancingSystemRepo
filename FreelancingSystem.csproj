@@ -344,6 +344,8 @@
     <Content Include="Views\Admin\DisplayPosts.cshtml" />
     <Content Include="Views\Admin\EditPost.cshtml" />
     <Content Include="Views\Admin\DeletePost.cshtml" />
+    <Content Include="Views\Freelancer\RatePost.cshtml" />
+    <Content Include="Views\Freelancer\PostIsRated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

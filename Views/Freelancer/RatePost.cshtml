@@ -1,0 +1,37 @@
+﻿@model FreelancingSystem.Models.JobPostRate
+
+@{
+    ViewBag.Title = "RatePost";
+}
+
+<h2>Rate Post</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Rate, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*Adding the post id and freelancer id as hidden input*@
+    <input id="FreelancerID" name="FreelancerID" type="hidden" value=@ViewBag.freelancerID>
+    <input id="PostID" name="PostID" type="hidden" value=@ViewBag.postID>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Rate" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+

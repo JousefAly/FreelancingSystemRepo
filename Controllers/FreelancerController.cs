@@ -169,7 +169,7 @@ namespace FreelancingSystem.Controllers
                 ViewBag.post = post;
                 return View();
             }
-                return View("ErrorPostIsApplied");
+            return View("ErrorPostIsApplied");
         }
         [HttpPost]
         public ActionResult ApplyPost(Proposal p)
@@ -223,6 +223,26 @@ namespace FreelancingSystem.Controllers
                          select post).ToList();
             return View(myJobsLst);
 
+        }
+        // id of the post to be rated
+        public ActionResult RatePost(int id)
+        {
+            ViewBag.postID = id;
+            ViewBag.freelancerID = (int)Session["userID"];
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RatePost(JobPostRate recivedRate)
+        {
+            JobPostRate rate = new JobPostRate();
+            rate.Rate = recivedRate.Rate;
+            rate.FreelancerID = recivedRate.FreelancerID;
+            rate.PostID = recivedRate.PostID;
+            db.JobPostRates.Add(rate);
+            db.SaveChanges();
+            ViewBag.rate = rate.Rate;
+            return View("~/Views/Freelancer/PostIsRated.cshtml");
+        
         }
 
 
