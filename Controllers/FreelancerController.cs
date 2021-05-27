@@ -163,6 +163,9 @@ namespace FreelancingSystem.Controllers
             {
 
                 JobPost post = db.JobPosts.Find(id);
+                // increase number of proposals applied to post
+                post.NumOfProposals++;
+                db.SaveChanges();
                 ViewBag.post = post;
                 return View();
             }

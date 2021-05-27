@@ -14,6 +14,8 @@ namespace FreelancingSystem.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            int id = (int)Session["adminID"];
+            ViewBag.adminName = db.Admins.Find(id).FirstName;
             return View();
         }
         public ActionResult RegisterAdmin()
@@ -220,6 +222,34 @@ namespace FreelancingSystem.Controllers
             Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
+            return View();
+        }
+        public ActionResult DisplayPosts()
+        {
+            var posts = new List<JobPost>();
+            posts = (from p in db.JobPosts
+                     select p).ToList();
+            return View(posts);
+        }
+        public ActionResult EditPost(int id)
+        {
+            JobPost post = (from p in db.JobPosts
+                            where p.JobPostID == id
+                            select p).FirstOrDefault();
+            return View(post);
+        }
+        [HttpPost]
+        public ActionResult EditPost(JobPost post)
+        {
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("EditPost");
+        }
+        public ActionResult DeletePost(int id)
+        {
+            JobPost post = db.JobPosts.Find();
+            ViewBag.postName = post.Name;
+            db.JobPosts.Remove(post);
             return View();
         }
     }

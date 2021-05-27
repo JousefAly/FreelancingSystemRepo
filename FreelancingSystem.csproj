@@ -341,6 +341,9 @@
     <Content Include="Views\Admin\DetailsClient.cshtml" />
     <Content Include="Views\Admin\EditClient.cshtml" />
     <Content Include="Views\Admin\DeleteClient.cshtml" />
+    <Content Include="Views\Admin\DisplayPosts.cshtml" />
+    <Content Include="Views\Admin\EditPost.cshtml" />
+    <Content Include="Views\Admin\DeletePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
