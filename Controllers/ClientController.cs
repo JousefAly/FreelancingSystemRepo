@@ -28,7 +28,7 @@ namespace FreelancingSystem.Controllers
         {
             db.Clients.Add(client);
             db.SaveChanges();
-            return RedirectToAction("Home");
+            return RedirectToAction("Index","Home");
         }
         [HttpGet]
         public ActionResult Login()
@@ -75,7 +75,7 @@ namespace FreelancingSystem.Controllers
         public ActionResult CreatePost(JobPost post)
         {
 
-            post.ClientID = (int)Session["ClientID"];
+            post.ClientID = (int)Session["clientID"];
             db.JobPosts.Add(post);
             db.SaveChanges();
             return View("PostIsSentToAdmin");
