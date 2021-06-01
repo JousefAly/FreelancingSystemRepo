@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,7 +34,15 @@ namespace FreelancingSystem.Controllers
         public ActionResult InsertFreelancer(Freelancer freelancer)
         {
             db.Freelancers.Add(freelancer);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e.Message);
+                return View();
+            }
             return RedirectToAction("Home");
         }
         [HttpGet]

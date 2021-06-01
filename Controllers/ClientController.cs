@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +28,15 @@ namespace FreelancingSystem.Controllers
         public ActionResult InsertClient(Client client)
         {
             db.Clients.Add(client);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e.Message);
+                return View();
+            }
             return RedirectToAction("Home");
         }
         [HttpGet]
@@ -77,7 +86,18 @@ namespace FreelancingSystem.Controllers
 
             post.ClientID = (int)Session["ClientID"];
             db.JobPosts.Add(post);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e.Message);
+                return View();
+
+            }
+           
             return View("PostIsSentToAdmin");
         }
         public ActionResult EditProfile()

@@ -11,12 +11,19 @@ namespace FreelancingSystem.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobPostID { get; set; }
+        
         [Display(Name="Job Name")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }  = string.Empty;
         public int ClientID { get; set; }
-        public string Discreption { get; set; } = string.Empty;
+
+        
+        public string Discreption { get; set; }   = string.Empty;
+
+        [Required(ErrorMessage ="Enter budget")]
+        [DataType(DataType.Currency)]
         public decimal Budget { get; set; }
         // fixed or hourly
+        
         public string Type { get; set; } 
         // initialized when object is instantiated to the time of object creation
         [Display(Name ="Creation Date")]
@@ -27,6 +34,7 @@ namespace FreelancingSystem.Models
         public int FreelancerId { get; set; } 
         // true if approved by admin otherwise false
         public bool Approved { get; set; } = false;
+        
         [Display(Name="Client Name")]
         public string ClientName { get; set; }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,7 +27,16 @@ namespace FreelancingSystem.Controllers
         public ActionResult RegisterAdmin(Admin admin)
         {
             db.Admins.Add(admin);
-            db.SaveChanges();
+
+            try
+            {
+                db.SaveChanges();
+            }catch(DbEntityValidationException e)
+            {
+                Console.WriteLine(e.Message);
+                return View();
+            }
+            
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Login()
@@ -44,7 +54,7 @@ namespace FreelancingSystem.Controllers
                   select a).FirstOrDefault();
 
 
-            if (ad != null && password == ad.Password)
+            if (ad != null && password == ad.Password )
             {
 
                 //store the user id of the logined user to access it later
@@ -247,10 +257,12 @@ namespace FreelancingSystem.Controllers
         }
         public ActionResult DeletePost(int id)
         {
-            JobPost post = db.JobPosts.Find();
+            JobPost post = db.JobPosts.Find(id);
             ViewBag.postName = post.Name;
             db.JobPosts.Remove(post);
-            return View();
+            db.SaveChanges();
+            return RedirectToAction("DisplayPosts");
         }
     }
 }
+

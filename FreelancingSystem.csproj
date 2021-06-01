@@ -239,6 +239,18 @@
     <Compile Include="Migrations\202105260758371_back.Designer.cs">
       <DependentUpon>202105260758371_back.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106011404414_update2.cs" />
+    <Compile Include="Migrations\202106011404414_update2.Designer.cs">
+      <DependentUpon>202106011404414_update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011422322_addDataannotation.cs" />
+    <Compile Include="Migrations\202106011422322_addDataannotation.Designer.cs">
+      <DependentUpon>202106011422322_addDataannotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011517498_postformupdate.cs" />
+    <Compile Include="Migrations\202106011517498_postformupdate.Designer.cs">
+      <DependentUpon>202106011517498_postformupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\FrAppliedPost.cs" />
@@ -298,9 +310,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\JobPost\Details.cshtml" />
     <Content Include="Views\JobPost\GetJobPost.cshtml" />
-    <Content Include="Views\Client\InsertClient.cshtml" />
     <Content Include="Views\Client\Home.cshtml" />
-    <Content Include="Views\Freelancer\InsertFreelancer.cshtml" />
     <Content Include="Views\Shared\_FactoryLayout.cshtml" />
     <Content Include="Views\Client\_ViewStart.cshtml" />
     <Content Include="Views\Freelancer\_ViewStart.cshtml" />
@@ -322,7 +332,6 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
-    <Content Include="Views\Admin\RegisterAdmin.cshtml" />
     <Content Include="Views\Admin\ErrorAdminNotFound.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Client\PostIsSentToAdmin.cshtml" />
@@ -346,6 +355,9 @@
     <Content Include="Views\Admin\DeletePost.cshtml" />
     <Content Include="Views\Freelancer\RatePost.cshtml" />
     <Content Include="Views\Freelancer\PostIsRated.cshtml" />
+    <Content Include="Views\Freelancer\InsertFreelancer.cshtml" />
+    <Content Include="Views\Client\InsertClient.cshtml" />
+    <Content Include="Views\Admin\RegisterAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -432,6 +444,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105260758371_back.resx">
       <DependentUpon>202105260758371_back.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011404414_update2.resx">
+      <DependentUpon>202106011404414_update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011422322_addDataannotation.resx">
+      <DependentUpon>202106011422322_addDataannotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011517498_postformupdate.resx">
+      <DependentUpon>202106011517498_postformupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

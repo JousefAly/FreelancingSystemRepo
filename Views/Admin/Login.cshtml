@@ -1,21 +1,46 @@
 ﻿@{
     Layout = "~/Views/Shared/_WallLayout.cshtml";
 }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <h1>Login Admin </h1>
+<div id="alert" class="alert alert-danger" style="display:none">
+    <span id="msg"></span>
+</div>
 @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
 {
 
-    <label for="UserName">User Name</label>
-    <br />
-    <input type="text" id="UserName" name="UserName">
-    <br />
-    <label for="Password">Password</label>
-    <br />
-    <input type="password" id="Password" name="Password">
-    <br />
+    <div class="form-group">
+        <label for="username">Enter Username:</label>
+        <input type="text" class="form-control" placeholder="Enter Username"  id="UserName" name="UserName">
+    </div>
 
-    <input type="submit" value="Login" class="button">
-    <br />
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" id="Password" name="Password">
+    </div>
+
+    <div class="form-group form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+    </div>
+
+    <input type="submit" value="Login" id="save" class="button btn btn-primary">
 
 
 }
+
+
+<script>
+    $(document).ready(function () {
+        $("#save").click(function () {
+            if ($("#Password").val() == "" || $("#UserName").val() == "") {
+                $("#alert").fadeIn();
+                $("#msg").append("Username or Password in not valid");
+                return false;
+            }
+           
+
+        })
+    })
+</script>

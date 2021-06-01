@@ -13,6 +13,17 @@
 
 </head>
 <body>
+
+    <style>
+        .customLI{
+            left:990px;
+
+        }
+        #positon{
+            left: 985px;
+        }
+
+    </style>
     <!--old menu-->
     <!-- old menu
     <div class="topnav">
@@ -58,23 +69,20 @@
                 </ul>
             </li>
             <!-- other menus
-            <li>
-                <a href="#">Contact Me</a>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolor</a></li>
-                    <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
-                    <li><a href="#">Suspendisse fringilla</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Support</a></li>
-                -->
-            <div class="search-container">
-                @using (Html.BeginForm("Search", "JobPost"))
-                {
-                    <input type="text" placeholder="Search.." name="txt" id="txt">
-                    <button type="submit">search</button>
-                }
-            </div>
+    <li>
+        <a href="#">Contact Me</a>
+        <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Support</a></li>
+        -->
+            <li class="customLI" id="positon"><input type="text" placeholder="Search.." class="form-control" name="txt" id="txt"></li>
+            <li class="customLI" ><button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-search"></i>search</button></li>
+
+           
         </ul>
     </div>
 
