@@ -28,6 +28,7 @@ namespace FreelancingSystem.Controllers
         public ActionResult InsertClient(Client client)
         {
             db.Clients.Add(client);
+<<<<<<< HEAD
             try
             {
                 db.SaveChanges();
@@ -38,6 +39,10 @@ namespace FreelancingSystem.Controllers
                 return View();
             }
             return RedirectToAction("Home");
+=======
+            db.SaveChanges();
+            return RedirectToAction("Index","Home");
+>>>>>>> b6ff946840280df3e2c84574d4b94d0c271c461d
         }
         [HttpGet]
         public ActionResult Login()
@@ -84,7 +89,7 @@ namespace FreelancingSystem.Controllers
         public ActionResult CreatePost(JobPost post)
         {
 
-            post.ClientID = (int)Session["ClientID"];
+            post.ClientID = (int)Session["clientID"];
             db.JobPosts.Add(post);
 
             try
