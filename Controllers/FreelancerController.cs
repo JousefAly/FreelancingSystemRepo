@@ -43,7 +43,7 @@ namespace FreelancingSystem.Controllers
                 Console.WriteLine(e.Message);
                 return View();
             }
-            return RedirectToAction("Home");
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult Login()

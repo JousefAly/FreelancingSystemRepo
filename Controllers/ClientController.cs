@@ -28,7 +28,7 @@ namespace FreelancingSystem.Controllers
         public ActionResult InsertClient(Client client)
         {
             db.Clients.Add(client);
-<<<<<<< HEAD
+
             try
             {
                 db.SaveChanges();
@@ -38,11 +38,10 @@ namespace FreelancingSystem.Controllers
                 Console.WriteLine(e.Message);
                 return View();
             }
-            return RedirectToAction("Home");
-=======
-            db.SaveChanges();
-            return RedirectToAction("Index","Home");
->>>>>>> b6ff946840280df3e2c84574d4b94d0c271c461d
+            return RedirectToAction("Index", "Home");
+
+           
+
         }
         [HttpGet]
         public ActionResult Login()

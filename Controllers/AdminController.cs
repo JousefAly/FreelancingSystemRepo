@@ -31,12 +31,13 @@ namespace FreelancingSystem.Controllers
             try
             {
                 db.SaveChanges();
-            }catch(DbEntityValidationException e)
+            }
+            catch (DbEntityValidationException e)
             {
                 Console.WriteLine(e.Message);
                 return View();
             }
-            
+
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Login()
@@ -54,7 +55,7 @@ namespace FreelancingSystem.Controllers
                   select a).FirstOrDefault();
 
 
-            if (ad != null && password == ad.Password )
+            if (ad != null && password == ad.Password)
             {
 
                 //store the user id of the logined user to access it later
@@ -196,15 +197,15 @@ namespace FreelancingSystem.Controllers
             for (int i = 0; i < clientPosts.Count; i++)
             {
                 JobPost post = clientPosts[i];
-                if(post.Approved)
+                if (post.Approved)
                 {
                     acceptedPosts++;
-                    if(post.FreelancerId != 0)
+                    if (post.FreelancerId != 0)
                     {
                         workedPosts++;
                         totalPaid += post.Budget;
-                    }    
-                    
+                    }
+
                 }
 
             }
