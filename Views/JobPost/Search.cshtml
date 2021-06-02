@@ -23,12 +23,16 @@
                                 @item.Name .
                             </h4>
                             <p class="group inner list-group-item-text">
-                                Job description... @item.Discreption
+                                Job description<br />
+                                @item.Discreption
                             </p>
                             <div class="row">
                                 <div class="col-xs-12 col-md-6">
                                     <p class="lead">
-                                        Budget:  @item.Budget
+                                        Budget:  @item.Budget.ToString("C")
+                                    </p>
+                                    <p class="lead">
+                                        Type :  @item.Type
                                     </p>
                                     <p>@item.CreationDate.ToString("dddd, dd MMMM yyyy")</p>
                                 </div>

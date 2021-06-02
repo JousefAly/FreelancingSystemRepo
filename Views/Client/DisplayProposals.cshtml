@@ -37,13 +37,15 @@
 
             @foreach (var item in Model)
             {
+                //git the post of the proposal
+                FreelancingDBContext db = new FreelancingDBContext();
+                JobPost post = db.JobPosts.Find(item.PostID);
+                string postName = post.Name;
                 // if job is assigned to a freelancer dont display the job
-                if (item.FreelancerID == 0)
+                if (post.FreelancerId == 0)
                 {
 
-                    //git the post name for the proposal
-                    FreelancingDBContext db = new FreelancingDBContext();
-                    string postName = db.JobPosts.Find(item.PostID).Name;
+
 
                     <tr>
                         <td>
@@ -54,7 +56,7 @@
                         </td>
 
                         <td>
-                            @Html.DisplayFor(modelItem => item.FreelancerBudget)
+                            @item.FreelancerBudget.ToString("C");
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Content)

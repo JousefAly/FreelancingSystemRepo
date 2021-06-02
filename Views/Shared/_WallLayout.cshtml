@@ -79,10 +79,15 @@
     </li>
     <li><a href="#">Support</a></li>
         -->
-            <li class="customLI" id="positon"><input type="text" placeholder="Search.." class="form-control" name="txt" id="txt"></li>
-            <li class="customLI" ><button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-search"></i>search</button></li>
-
            
+            <div class="search-container">
+                @using (Html.BeginForm("Search", "JobPost"))
+                {
+                    <input type="text" placeholder="Search.." name="txt" id="txt">
+                    <button type="submit">search</button>
+                }
+            </div>
+
         </ul>
     </div>
 
